@@ -6,6 +6,13 @@ repository: https://github.com/ahmtydn/contacts_bridge
 documentation: https://github.com/ahmtydn/contacts_bridge/wiki
 issue_tracker: https://github.com/ahmtydn/contacts_bridge/issues
 
+topics:
+  - contacts
+  - flutter-plugin
+  - address-book
+  - cross-platform
+  - native-integration
+
 environment:
   sdk: ^3.9.2
   flutter: '>=3.3.0'

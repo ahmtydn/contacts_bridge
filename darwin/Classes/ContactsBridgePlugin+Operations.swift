@@ -47,8 +47,7 @@ extension ContactsBridgePlugin {
                 CNContactSocialProfilesKey as CNKeyDescriptor,
                 CNContactInstantMessageAddressesKey as CNKeyDescriptor,
                 CNContactBirthdayKey as CNKeyDescriptor,
-                CNContactDatesKey as CNKeyDescriptor,
-                CNContactNoteKey as CNKeyDescriptor
+                CNContactDatesKey as CNKeyDescriptor
             ]
             keys += propertyKeys
             
@@ -117,8 +116,7 @@ extension ContactsBridgePlugin {
                 CNContactSocialProfilesKey as CNKeyDescriptor,
                 CNContactInstantMessageAddressesKey as CNKeyDescriptor,
                 CNContactBirthdayKey as CNKeyDescriptor,
-                CNContactDatesKey as CNKeyDescriptor,
-                CNContactNoteKey as CNKeyDescriptor
+                CNContactDatesKey as CNKeyDescriptor
             ]
             keys += propertyKeys
             
@@ -172,8 +170,7 @@ extension ContactsBridgePlugin {
                 CNContactSocialProfilesKey as CNKeyDescriptor,
                 CNContactInstantMessageAddressesKey as CNKeyDescriptor,
                 CNContactBirthdayKey as CNKeyDescriptor,
-                CNContactDatesKey as CNKeyDescriptor,
-                CNContactNoteKey as CNKeyDescriptor
+                CNContactDatesKey as CNKeyDescriptor
             ]
             keys += propertyKeys
         }

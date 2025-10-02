@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4]
+### Fixed
+- Fixed "Unauthorized Keys" error (Code=102) on iOS/macOS when accessing contacts
+- Removed CNContactNoteKey from default fetch keys due to iOS 13+ entitlement requirements
+- Contact notes are now safely accessed through converter with availability check
+- Improved contact fetching reliability without requiring special entitlements
+
 ## [1.0.3]
 ### Fixed
 - Fixed Swift compiler error in iOS/macOS plugin registration

@@ -2,8 +2,8 @@
 
 A modern Flutter plugin for managing device contacts with comprehensive support for Android, iOS, and macOS. Built with clean architecture principles and providing a type-safe API for all contact operations.
 
-[![pub package](https://img.shields.io/pub/v/calendar_bridge.svg)](https://pub.dev/packages/calendar_bridge)
-[![Platform](https://img.shields.io/badge/platform-android%20%7C%20ios%20%7C%20macos-lightgrey)](https://pub.dev/packages/calendar_bridge)
+[![pub package](https://img.shields.io/pub/v/contacts_bridge.svg)](https://pub.dev/packages/contacts_bridge)
+[![Platform](https://img.shields.io/badge/platform-android%20%7C%20ios%20%7C%20macos-lightgrey)](https://pub.dev/packages/contacts_bridge)
 
 ## Table of Contents
 

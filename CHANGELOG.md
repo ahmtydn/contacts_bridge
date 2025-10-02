@@ -1,6 +1,13 @@
 # Changelog
 
-# [1.0.1]
+## [1.0.2]
+### Fixed
+- Fixed Android compilation errors in Kotlin extension files
+- Resolved visibility issues with `coroutineScope` and `resolver` properties
+- Fixed ArrayList type mismatch in contact operations
+- Added missing `NonNull` annotation import
+
+## [1.0.1]
 ### Fixed
 - Corrected minor typos in documentation
 

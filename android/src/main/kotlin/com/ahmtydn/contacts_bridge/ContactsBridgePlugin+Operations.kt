@@ -189,13 +189,13 @@ fun ContactsBridgePlugin.searchContacts(
 
 fun ContactsBridgePlugin.createContact(contactData: Map<String, Any>): Map<String, Any?> {
     val resolver = this.resolver ?: throw Exception("ContentResolver not available")
-    val operations = mutableListOf<ContentProviderOperation>()
+    val operations = ArrayList<ContentProviderOperation>()
     
-    // Create raw contact
+    // Insert raw contact
     operations.add(
-        ContentProviderOperation.newInsert(RawContacts.CONTENT_URI)
-            .withValue(RawContacts.ACCOUNT_TYPE, null as String?)
-            .withValue(RawContacts.ACCOUNT_NAME, null as String?)
+        ContentProviderOperation.newInsert(ContactsContract.RawContacts.CONTENT_URI)
+            .withValue(ContactsContract.RawContacts.ACCOUNT_TYPE, null)
+            .withValue(ContactsContract.RawContacts.ACCOUNT_NAME, null)
             .build()
     )
     

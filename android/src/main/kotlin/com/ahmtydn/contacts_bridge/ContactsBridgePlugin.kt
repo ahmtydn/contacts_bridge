@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
+import androidx.annotation.NonNull
 import android.provider.ContactsContract
 import android.provider.ContactsContract.CommonDataKinds.*
 import android.provider.ContactsContract.Data
@@ -31,9 +32,9 @@ class ContactsBridgePlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
     private lateinit var channel: MethodChannel
     private var context: Context? = null
     private var activity: android.app.Activity? = null
-    private var resolver: ContentResolver? = null
+    internal var resolver: ContentResolver? = null
     private var permissionResult: Result? = null
-    private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+    internal val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
 
     companion object {
         private const val PERMISSION_REQUEST_READ_CONTACTS = 1001

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:contacts_bridge/src/domain/entities/contact_address.dart';
 import 'package:contacts_bridge/src/domain/entities/contact_email.dart';
 import 'package:contacts_bridge/src/domain/entities/contact_event.dart';
@@ -188,13 +189,9 @@ class Contact extends Equatable {
   }
 
   /// Returns the birthday event if available
-  ContactEvent? get birthday {
-    try {
-      return events.firstWhere((event) => event.label == EventLabel.birthday);
-    } on Exception {
-      return null;
-    }
-  }
+  ContactEvent? get birthday => events.firstWhereOrNull(
+    (event) => event.label == EventLabel.birthday,
+  );
 
   /// Returns all anniversary events
   List<ContactEvent> get anniversaries {

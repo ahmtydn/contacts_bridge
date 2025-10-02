@@ -1,5 +1,9 @@
 # Changelog
 
+# [1.0.1]
+### Fixed
+- Corrected minor typos in documentation
+
 ## [1.0.0]
 
 ### Added

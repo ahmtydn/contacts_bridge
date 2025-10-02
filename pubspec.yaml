@@ -1,6 +1,6 @@
 name: contacts_bridge
 description: A modern Flutter plugin for managing device contacts with support for Android, iOS, and macOS. Features comprehensive contact operations, group management, and permission handling.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/ahmtydn/contacts_bridge
 repository: https://github.com/ahmtydn/contacts_bridge
 documentation: https://github.com/ahmtydn/contacts_bridge/wiki
@@ -23,6 +23,7 @@ dependencies:
   plugin_platform_interface: ^2.0.2
   meta: ^1.9.1
   equatable: ^2.0.5
+  collection: ^1.19.1
 
 
 dev_dependencies:

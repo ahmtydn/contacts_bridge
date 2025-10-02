@@ -1,0 +1,12 @@
+export 'plugin/contacts_bridge.dart';
+export 'src/core/error/exceptions.dart';
+export 'src/core/error/failures.dart';
+export 'src/core/utils/result.dart';
+export 'src/domain/entities/contact.dart';
+export 'src/domain/entities/contact_address.dart';
+export 'src/domain/entities/contact_email.dart';
+export 'src/domain/entities/contact_event.dart';
+export 'src/domain/entities/contact_name.dart';
+export 'src/domain/entities/contact_organization.dart';
+export 'src/domain/entities/contact_phone.dart';
+export 'src/domain/entities/permission_status.dart';

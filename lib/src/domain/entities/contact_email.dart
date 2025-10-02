@@ -3,20 +3,33 @@ import 'package:meta/meta.dart';
 
 /// Enum for different email labels
 enum EmailLabel {
+  /// Home email
   home,
+
+  /// Work email
   work,
+
+  /// School email
   school,
+
+  /// Other email
   other,
+
+  /// Custom email with custom label
   custom,
+
   // iOS specific
+  /// iCloud email
   iCloud,
   // Android specific
+  /// Mobile email
   mobile,
 }
 
 /// Represents an email address
 @immutable
 class ContactEmail extends Equatable {
+  /// Creates a ContactEmail with the given parameters
   const ContactEmail({
     required this.address,
     this.label = EmailLabel.home,
@@ -34,9 +47,16 @@ class ContactEmail extends Equatable {
     );
   }
 
+  /// The email address
   final String address;
+
+  /// The label type for this email
   final EmailLabel label;
+
+  /// Custom label text when label is EmailLabel.custom
   final String customLabel;
+
+  /// Whether this is the primary email address
   final bool isPrimary;
 
   /// Returns true if the email address has a valid format
@@ -106,6 +126,8 @@ class ContactEmail extends Equatable {
     }
   }
 
+  /// Creates a copy of this email with the
+  /// given fields replaced with new values
   ContactEmail copyWith({
     String? address,
     EmailLabel? label,

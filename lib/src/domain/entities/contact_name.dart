@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 /// Represents a name with all its components
 @immutable
 class ContactName extends Equatable {
+  /// Creates a ContactName with the given parameters
   const ContactName({
     this.first = '',
     this.last = '',
@@ -31,14 +32,31 @@ class ContactName extends Equatable {
     );
   }
 
+  /// The first name
   final String first;
+
+  /// The last name
   final String last;
+
+  /// The middle name
   final String middle;
+
+  /// The name prefix (Mr., Dr., etc.)
   final String prefix;
+
+  /// The name suffix (Jr., Sr., etc.)
   final String suffix;
+
+  /// The nickname
   final String nickname;
+
+  /// The phonetic first name
   final String phoneticFirst;
+
+  /// The phonetic last name
   final String phoneticLast;
+
+  /// The phonetic middle name
   final String phoneticMiddle;
 
   /// Returns the full display name
@@ -65,6 +83,8 @@ class ContactName extends Equatable {
     return '$last, $firstPart';
   }
 
+  /// Creates a copy of this contact name with the
+  /// given fields replaced with new values
   ContactName copyWith({
     String? first,
     String? last,

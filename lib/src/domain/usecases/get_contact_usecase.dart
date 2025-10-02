@@ -5,6 +5,7 @@ import 'package:contacts_bridge/src/domain/usecases/base_usecase.dart';
 
 /// Parameters for getting a single contact
 class GetContactParams {
+  /// Creates GetContactParams with the given parameters
   const GetContactParams({
     required this.id,
     this.withProperties = true,
@@ -12,14 +13,22 @@ class GetContactParams {
     this.withPhoto = false,
   });
 
+  /// The ID of the contact to retrieve
   final String id;
+
+  /// Whether to include additional contact properties
   final bool withProperties;
+
+  /// Whether to include contact thumbnail
   final bool withThumbnail;
+
+  /// Whether to include full contact photo
   final bool withPhoto;
 }
 
 /// Use case for fetching a single contact by ID
 class GetContactUseCase extends UseCase<Contact?, GetContactParams> {
+  /// Creates a GetContactUseCase with the given repository
   const GetContactUseCase(super.repository);
 
   @override

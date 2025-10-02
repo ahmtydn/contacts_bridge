@@ -2,11 +2,27 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 /// Enum for different address labels
-enum AddressLabel { home, work, school, other, custom }
+enum AddressLabel {
+  /// Home address
+  home,
+
+  /// Work address
+  work,
+
+  /// School address
+  school,
+
+  /// Other address
+  other,
+
+  /// Custom address with custom label
+  custom,
+}
 
 /// Represents a postal address
 @immutable
 class ContactAddress extends Equatable {
+  /// Creates a ContactAddress with the given parameters
   const ContactAddress({
     this.street = '',
     this.city = '',
@@ -36,15 +52,34 @@ class ContactAddress extends Equatable {
     );
   }
 
+  /// The street address
   final String street;
+
+  /// The city
   final String city;
+
+  /// The state or province
   final String state;
+
+  /// The postal code
   final String postalCode;
+
+  /// The country
   final String country;
+
+  /// The ISO country code
   final String isoCountry;
+
+  /// The sub administrative area
   final String subAdministrativeArea;
+
+  /// The sub locality
   final String subLocality;
+
+  /// The address label type
   final AddressLabel label;
+
+  /// Custom label text when label is AddressLabel.custom
   final String customLabel;
 
   /// Returns the formatted address as a single string
@@ -124,6 +159,8 @@ class ContactAddress extends Equatable {
     }
   }
 
+  /// Creates a copy of this contact address with the
+  /// given fields replaced with new values
   ContactAddress copyWith({
     String? street,
     String? city,

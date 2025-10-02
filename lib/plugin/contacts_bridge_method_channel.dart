@@ -179,7 +179,7 @@ class MethodChannelContactsBridge extends ContactsBridgePlatform {
 
   // Helper methods for parsing data
 
-  /// Safely converts a dynamic object to Map<String, dynamic>
+  /// Safely converts a dynamic object to `Map<String, dynamic>`
   /// Handles nested maps and lists that come from platform channels
   Map<String, dynamic> _safeMapCast(dynamic data) {
     if (data is Map<String, dynamic>) {

@@ -15,12 +15,15 @@ enum PermissionStatus {
   /// The app is restricted from accessing contacts (e.g., by parental controls)
   restricted('restricted');
 
-  final String value;
   const PermissionStatus(this.value);
+
+  /// The string representation of this permission status
+  final String value;
 
   @override
   String toString() => value;
 
+  /// A human-readable description of the permission status
   String get description {
     switch (this) {
       case PermissionStatus.notDetermined:

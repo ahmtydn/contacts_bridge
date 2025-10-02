@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 
 /// A generic class for handling results that can be either success or failure
 abstract class Result<T> extends Equatable {
+  /// Creates a Result instance
   const Result();
 
   /// Returns true if the result is successful
@@ -22,7 +23,7 @@ abstract class Result<T> extends Equatable {
     if (isSuccess) {
       try {
         return Success(transform(value as T));
-      } catch (e) {
+      } on Exception catch (e) {
         return Failed(UnexpectedFailure('Transform failed: $e'));
       }
     }
@@ -30,19 +31,17 @@ abstract class Result<T> extends Equatable {
   }
 
   /// Executes a function if the result is successful
-  Result<T> onSuccess(void Function(T) action) {
+  void onSuccess(void Function(T) action) {
     if (isSuccess) {
       action(value as T);
     }
-    return this;
   }
 
   /// Executes a function if the result is a failure
-  Result<T> onFailure(void Function(Failure) action) {
+  void onFailure(void Function(Failure) action) {
     if (isFailure) {
       action(failure!);
     }
-    return this;
   }
 
   @override
@@ -51,7 +50,10 @@ abstract class Result<T> extends Equatable {
 
 /// Represents a successful result
 class Success<T> extends Result<T> {
+  /// Creates a successful result with the given data
   const Success(this.data);
+
+  /// The successful data
 
   final T data;
 
@@ -61,6 +63,7 @@ class Success<T> extends Result<T> {
 
 /// Represents a failed result
 class Failed<T> extends Result<T> {
+  /// Creates a failed result with the given failure
   const Failed(this.failure);
 
   @override

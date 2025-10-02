@@ -3,33 +3,71 @@ import 'package:meta/meta.dart';
 
 /// Enum for different phone number labels
 enum PhoneLabel {
+  /// Mobile phone number
   mobile,
+
+  /// Home phone number
   home,
+
+  /// Work phone number
   work,
+
+  /// Main phone number
   main,
+
+  /// Home fax number
   homeFax,
+
+  /// Work fax number
   workFax,
+
+  /// Pager number
   pager,
+
+  /// Other type of phone number
   other,
+
+  /// Custom label phone number
   custom,
   // iOS specific
+  /// iPhone number (iOS specific)
   iPhone,
   // Android specific
+  /// Assistant phone number (Android specific)
   assistant,
+
+  /// Callback phone number (Android specific)
   callback,
+
+  /// Car phone number (Android specific)
   car,
+
+  /// Company main phone number (Android specific)
   companyMain,
+
+  /// ISDN phone number (Android specific)
   isdn,
+
+  /// Radio phone number (Android specific)
   radio,
+
+  /// Telex phone number (Android specific)
   telex,
+
+  /// TTY TDD phone number (Android specific)
   ttyTdd,
+
+  /// Work mobile phone number (Android specific)
   workMobile,
+
+  /// Work pager phone number (Android specific)
   workPager,
 }
 
 /// Represents a phone number
 @immutable
 class ContactPhone extends Equatable {
+  /// Creates a ContactPhone with the given parameters
   const ContactPhone({
     required this.number,
     this.label = PhoneLabel.mobile,
@@ -47,9 +85,16 @@ class ContactPhone extends Equatable {
     );
   }
 
+  /// The phone number
   final String number;
+
+  /// The label type for this phone number
   final PhoneLabel label;
+
+  /// Custom label text when label is PhoneLabel.custom
   final String customLabel;
+
+  /// Whether this is the primary phone number
   final bool isPrimary;
 
   /// Returns the normalized phone number (digits only)
@@ -167,6 +212,8 @@ class ContactPhone extends Equatable {
     }
   }
 
+  /// Creates a copy of this contact phone with the
+  /// given fields replaced with new values
   ContactPhone copyWith({
     String? number,
     PhoneLabel? label,

@@ -74,34 +74,34 @@ class _ContactsHomePageState extends State<ContactsHomePage> {
   Future<void> _checkPermissionStatus() async {
     final result = await _contactsBridge.getPermissionStatus();
     result
-        .onSuccess((status) {
-          setState(() {
-            _permissionStatus = status.name;
-          });
-        })
-        .onFailure((failure) {
-          setState(() {
-            _permissionStatus = 'Error: ${failure.message}';
-          });
+      ..onSuccess((status) {
+        setState(() {
+          _permissionStatus = status.name;
         });
+      })
+      ..onFailure((failure) {
+        setState(() {
+          _permissionStatus = 'Error: ${failure.message}';
+        });
+      });
   }
 
   Future<void> _requestPermission() async {
     final result = await _contactsBridge.requestPermission();
 
     result
-        .onSuccess((status) {
-          setState(() {
-            _permissionStatus = status.description;
-          });
-          _showSnackBar('Permission: ${status.description}', Colors.green);
-          if (status.canRead) {
-            _loadAllContacts();
-          }
-        })
-        .onFailure((failure) {
-          _showSnackBar('Permission failed: ${failure.message}', Colors.red);
+      ..onSuccess((status) {
+        setState(() {
+          _permissionStatus = status.description;
         });
+        _showSnackBar('Permission: ${status.description}', Colors.green);
+        if (status.canRead) {
+          _loadAllContacts();
+        }
+      })
+      ..onFailure((failure) {
+        _showSnackBar('Permission failed: ${failure.message}', Colors.red);
+      });
   }
 
   Future<void> _loadAllContacts() async {
@@ -116,22 +116,22 @@ class _ContactsHomePageState extends State<ContactsHomePage> {
     );
 
     result
-        .onSuccess((contacts) {
-          setState(() {
-            _contacts = contacts;
-            _isLoading = false;
-          });
-          _showSnackBar('Loaded ${contacts.length} contacts', Colors.green);
-        })
-        .onFailure((failure) {
-          setState(() {
-            _isLoading = false;
-          });
-          _showSnackBar(
-            'Failed to load contacts: ${failure.message}',
-            Colors.red,
-          );
+      ..onSuccess((contacts) {
+        setState(() {
+          _contacts = contacts;
+          _isLoading = false;
         });
+        _showSnackBar('Loaded ${contacts.length} contacts', Colors.green);
+      })
+      ..onFailure((failure) {
+        setState(() {
+          _isLoading = false;
+        });
+        _showSnackBar(
+          'Failed to load contacts: ${failure.message}',
+          Colors.red,
+        );
+      });
   }
 
   Future<void> _searchContacts(String query) async {
@@ -151,19 +151,19 @@ class _ContactsHomePageState extends State<ContactsHomePage> {
     );
 
     result
-        .onSuccess((contacts) {
-          setState(() {
-            _contacts = contacts;
-            _isLoading = false;
-          });
-        })
-        .onFailure((failure) {
-          setState(() {
-            _isLoading = false;
-          });
-
-          _showSnackBar('Search failed: ${failure.message}', Colors.red);
+      ..onSuccess((contacts) {
+        setState(() {
+          _contacts = contacts;
+          _isLoading = false;
         });
+      })
+      ..onFailure((failure) {
+        setState(() {
+          _isLoading = false;
+        });
+
+        _showSnackBar('Search failed: ${failure.message}', Colors.red);
+      });
   }
 
   void _showSnackBar(String message, Color color) {
@@ -339,13 +339,13 @@ class _ContactsHomePageState extends State<ContactsHomePage> {
     if (confirmed == true) {
       final result = await _contactsBridge.deleteContact(contact.id);
       result
-          .onSuccess((_) {
-            _showSnackBar('Contact deleted', Colors.green);
-            _loadAllContacts();
-          })
-          .onFailure((failure) {
-            _showSnackBar('Delete failed: ${failure.message}', Colors.red);
-          });
+        ..onSuccess((_) {
+          _showSnackBar('Contact deleted', Colors.green);
+          _loadAllContacts();
+        })
+        ..onFailure((failure) {
+          _showSnackBar('Delete failed: ${failure.message}', Colors.red);
+        });
     }
   }
 }

@@ -11,6 +11,7 @@ import 'package:contacts_bridge/src/domain/repositories/contacts_repository.dart
 /// This class follows the Repository pattern and acts as a bridge between
 /// the domain layer and the platform-specific implementation
 class ContactsRepositoryImpl implements ContactsRepository {
+  /// Creates a ContactsRepositoryImpl with the given platform interface
   const ContactsRepositoryImpl(this._platform);
 
   final ContactsBridgePlatform _platform;
@@ -22,7 +23,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     try {
       final status = await _platform.requestPermission(readOnly: readOnly);
       return Success(status);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to request permission: $e'));
     }
   }
@@ -32,7 +33,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     try {
       final status = await _platform.getPermissionStatus();
       return Success(status);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to get permission status: $e'));
     }
   }
@@ -52,7 +53,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
         sorted: sorted,
       );
       return Success(contacts);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to get contacts: $e'));
     }
   }
@@ -72,7 +73,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
         withPhoto: withPhoto,
       );
       return Success(contact);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(ContactNotFoundFailure('Failed to get contact: $e'));
     }
   }
@@ -90,7 +91,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
         sorted: sorted,
       );
       return Success(contacts);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to search contacts: $e'));
     }
   }
@@ -100,7 +101,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     try {
       final createdContact = await _platform.createContact(contact);
       return Success(createdContact);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to create contact: $e'));
     }
   }
@@ -110,7 +111,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     try {
       final updatedContact = await _platform.updateContact(contact);
       return Success(updatedContact);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to update contact: $e'));
     }
   }
@@ -120,7 +121,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     try {
       await _platform.deleteContact(id);
       return const Success(null);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to delete contact: $e'));
     }
   }
@@ -133,14 +134,14 @@ class ContactsRepositoryImpl implements ContactsRepository {
         await _platform.deleteContact(id);
       }
       return const Success(null);
-    } catch (e) {
+    } on Exception catch (e) {
       return Failed(PlatformFailure('Failed to delete contacts: $e'));
     }
   }
 
   @override
   Future<Result<List<String>>> getGroups() async {
-    // TODO: Implement when platform supports groups
+    // TODO(ahmtydn): Implement when platform supports groups
     return const Failed(PlatformFailure('Groups not yet implemented'));
   }
 
@@ -149,7 +150,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     String contactId,
     String groupId,
   ) async {
-    // TODO: Implement when platform supports groups
+    // TODO(ahmtydn): Implement when platform supports groups
     return const Failed(PlatformFailure('Groups not yet implemented'));
   }
 
@@ -158,7 +159,7 @@ class ContactsRepositoryImpl implements ContactsRepository {
     String contactId,
     String groupId,
   ) async {
-    // TODO: Implement when platform supports groups
+    // TODO(ahmtydn): Implement when platform supports groups
     return const Failed(PlatformFailure('Groups not yet implemented'));
   }
 
@@ -166,26 +167,26 @@ class ContactsRepositoryImpl implements ContactsRepository {
   Stream<List<Contact>> observeContacts() {
     try {
       return _platform.observeContacts();
-    } catch (e) {
+    } on Exception catch (e) {
       return Stream.error(PlatformFailure('Failed to observe contacts: $e'));
     }
   }
 
   @override
   Future<Result<Contact?>> pickContact() async {
-    // TODO: Implement when platform supports contact picker
+    // TODO(ahmtydn): Implement when platform supports contact picker
     return const Failed(PlatformFailure('Contact picker not yet implemented'));
   }
 
   @override
   Future<Result<Contact?>> editContact(Contact contact) async {
-    // TODO: Implement when platform supports contact editor
+    // TODO(ahmtydn): Implement when platform supports contact editor
     return const Failed(PlatformFailure('Contact editor not yet implemented'));
   }
 
   @override
   Future<Result<void>> viewContact(Contact contact) async {
-    // TODO: Implement when platform supports contact viewer
+    // TODO(ahmtydn): Implement when platform supports contact viewer
     return const Failed(PlatformFailure('Contact viewer not yet implemented'));
   }
 }

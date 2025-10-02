@@ -4,6 +4,8 @@ import 'package:meta/meta.dart';
 /// Represents an organization/job information
 @immutable
 class ContactOrganization extends Equatable {
+  /// Creates a new [ContactOrganization] with optional
+  /// company, title, and department
   const ContactOrganization({
     this.company = '',
     this.title = '',
@@ -19,8 +21,13 @@ class ContactOrganization extends Equatable {
     );
   }
 
+  /// The company name
   final String company;
+
+  /// The job title
   final String title;
+
+  /// The department
   final String department;
 
   /// Returns the formatted organization info
@@ -48,6 +55,8 @@ class ContactOrganization extends Equatable {
     };
   }
 
+  /// Creates a copy of this organization with given fields replaced with new
+  /// values
   ContactOrganization copyWith({
     String? company,
     String? title,

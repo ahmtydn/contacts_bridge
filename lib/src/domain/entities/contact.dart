@@ -13,6 +13,7 @@ import 'package:meta/meta.dart';
 /// Represents a complete contact with all its information
 @immutable
 class Contact extends Equatable {
+  /// Creates a Contact with the given parameters
   const Contact({
     required this.id,
     required this.displayName,
@@ -190,7 +191,7 @@ class Contact extends Equatable {
   ContactEvent? get birthday {
     try {
       return events.firstWhere((event) => event.label == EventLabel.birthday);
-    } catch (e) {
+    } on Exception {
       return null;
     }
   }
@@ -236,6 +237,8 @@ class Contact extends Equatable {
     return parts.join(' • ');
   }
 
+  /// Creates a copy of this contact with the given
+  /// fields replaced with new values
   Contact copyWith({
     String? id,
     String? displayName,
@@ -319,7 +322,7 @@ class Contact extends Equatable {
     } else if (data is String) {
       try {
         return base64Decode(data);
-      } catch (e) {
+      } on FormatException {
         return null;
       }
     }

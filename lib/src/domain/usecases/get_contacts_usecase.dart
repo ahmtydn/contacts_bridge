@@ -5,6 +5,7 @@ import 'package:contacts_bridge/src/domain/usecases/base_usecase.dart';
 
 /// Parameters for getting contacts
 class GetContactsParams {
+  /// Creates GetContactsParams with the given options
   const GetContactsParams({
     this.withProperties = false,
     this.withThumbnail = false,
@@ -12,14 +13,22 @@ class GetContactsParams {
     this.sorted = true,
   });
 
+  /// Whether to include additional contact properties
   final bool withProperties;
+
+  /// Whether to include contact thumbnails
   final bool withThumbnail;
+
+  /// Whether to include full contact photos
   final bool withPhoto;
+
+  /// Whether to sort the contacts
   final bool sorted;
 }
 
 /// Use case for fetching all contacts
 class GetContactsUseCase extends UseCase<List<Contact>, GetContactsParams> {
+  /// Creates a GetContactsUseCase with the given repository
   const GetContactsUseCase(super.repository);
 
   @override

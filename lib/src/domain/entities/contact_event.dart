@@ -3,21 +3,35 @@ import 'package:meta/meta.dart';
 
 /// Enum for different event labels
 enum EventLabel {
+  /// Birthday event
   birthday,
+
+  /// Anniversary event
   anniversary,
+
+  /// Other type of event
   other,
+
+  /// Custom label event
   custom,
   // iOS/macOS specific
+  /// Work anniversary event (iOS/macOS specific)
   workAnniversary,
   // Android specific
+  /// Newborn event (Android specific)
   newborn,
+
+  /// Kids event (Android specific)
   kids,
+
+  /// Parent anniversary event (Android specific)
   parentAnniversary,
 }
 
 /// Represents a contact event (birthday, anniversary, etc.)
 @immutable
 class ContactEvent extends Equatable {
+  /// Creates a new [ContactEvent] with required month and day
   const ContactEvent({
     required this.month,
     required this.day,

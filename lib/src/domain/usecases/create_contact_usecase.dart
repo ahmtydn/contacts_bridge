@@ -5,13 +5,16 @@ import 'package:contacts_bridge/src/domain/usecases/base_usecase.dart';
 
 /// Parameters for creating a contact
 class CreateContactParams {
+  /// Creates CreateContactParams with the given contact
   const CreateContactParams({required this.contact});
 
+  /// The contact to be created
   final Contact contact;
 }
 
 /// Use case for creating a new contact
 class CreateContactUseCase extends UseCase<Contact, CreateContactParams> {
+  /// Creates a CreateContactUseCase with the given repository
   const CreateContactUseCase(super.repository);
 
   @override

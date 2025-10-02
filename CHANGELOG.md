@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.3]
+### Fixed
+- Fixed Swift compiler error in iOS/macOS plugin registration
+- Changed `registrar.messenger` to `registrar.messenger()` to match Flutter API changes
+
 ## [1.0.2]
 ### Fixed
 - Fixed Android compilation errors in Kotlin extension files

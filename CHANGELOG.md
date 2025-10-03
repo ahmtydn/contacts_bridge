@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5]
+### Fixed
+- Fixed Swift compiler error with messenger API compatibility
+- Added platform-specific messenger access for iOS (`messenger()`) and macOS (`messenger`)
+- Resolved build failures on macOS with proper FlutterPluginRegistrar usage
+
 ## [1.0.4]
 ### Fixed
 - Fixed "Unauthorized Keys" error (Code=102) on iOS/macOS when accessing contacts

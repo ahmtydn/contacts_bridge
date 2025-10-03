@@ -12,7 +12,11 @@ import ContactsUI
 @available(iOS 9.0, macOS 10.11, *)
 public class ContactsBridgePlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
+    #if os(iOS)
     let channel = FlutterMethodChannel(name: "com.ahmtydn.contacts_bridge", binaryMessenger: registrar.messenger())
+    #else
+    let channel = FlutterMethodChannel(name: "com.ahmtydn.contacts_bridge", binaryMessenger: registrar.messenger)
+    #endif
     let instance = ContactsBridgePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
